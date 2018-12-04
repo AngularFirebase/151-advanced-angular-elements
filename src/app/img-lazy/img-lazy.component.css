@@ -1,0 +1,45 @@
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.bg {
+  padding-top: calc(1080 / 1920 * 100%);
+  margin: auto;
+  animation: shimmer 1s linear 0s infinite forwards;
+  background: #d0d3da;
+  box-shadow: 0 8px 16px rgba(0, 30, 84, 0.1);
+  background-image: linear-gradient(
+    to right,
+    #d0d3da 0%,
+    #e9ebee 20%,
+    #d0d3da 40%,
+    #d0d3da 100%
+  );
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+  background: black;
+}
+
+figcaption {
+  padding: 10px;
+  color: white;
+}
+
+h3 {
+  margin: 0;
+}

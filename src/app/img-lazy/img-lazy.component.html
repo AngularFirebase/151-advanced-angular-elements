@@ -1,0 +1,10 @@
+<div *ngIf="!state.loaded" class="wrapper bg"></div>
+
+<figure *ngIf="state.visible">
+  <img [hidden]="!state.loaded" (load)="onLoad()" [src]="src" [alt]="alt" />
+
+  <figcaption>
+    <h1><slot name="header">Default Header</slot></h1>
+    <p><slot name="caption">Default Caption</slot></p>
+  </figcaption>
+</figure>

@@ -1,16 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
+import { createCustomElement } from '@angular/elements';
 
-import { AppComponent } from './app.component';
+const config = {
+  apiKey: 'AIzaSyAesSTpq6RdhSGqqh3BNcJErodzk1ePzps',
+  authDomain: 'fireship-dev-17429.firebaseapp.com',
+  databaseURL: 'https://fireship-dev-17429.firebaseio.com',
+  projectId: 'fireship-dev-17429',
+  storageBucket: 'fireship-dev-17429.appspot.com',
+  messagingSenderId: '307044372590'
+};
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { ImgLazyComponent } from './img-lazy/img-lazy.component';
+import { ImgFirebaseComponent } from './img-firebase/img-firebase.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [ImgLazyComponent, ImgFirebaseComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AngularFireModule.initializeApp(config),
+    AngularFireStorageModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [ImgLazyComponent, ImgFirebaseComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) {}
+
+  ngDoBootstrap() {
+    const elements: any[] = [
+      [ImgLazyComponent, 'img-lazy'],
+      [ImgFirebaseComponent, 'img-firebase']
+    ];
+
+    for (const [component, name] of elements) {
+      const el = createCustomElement(component, { injector: this.injector });
+      customElements.define(name, el);
+    }
+  }
+}
