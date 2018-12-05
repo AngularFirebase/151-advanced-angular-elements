@@ -1,3 +1,11 @@
-# Episode 151 - Angular Elements Performance Optimization
+# Episode 151 - Advanced Angular Elements
 
-Learn how to load a massive 800Kb JS bundle and multiple giant 1MB+ images, while still achieving a 99+ Lighthouse performance score. 
+Build a web component for lazy loading images and learn how to...
+
+- Optimize Lighthouse performance with Angular Elements
+- Maintain predictible component state
+- Expose public methods
+- Emit public events
+- And more!
+
+Watch on [YouTube](https://youtube.com/AngularFirebase)

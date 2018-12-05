@@ -55,9 +55,9 @@ export class ImgLazyComponent implements OnInit {
   }
 
   onLoad() {
-    // setTimeout(() => {
-    this.setState('loaded', true);
-    // }, 2000);
+    setTimeout(() => {
+      this.setState('loaded', true);
+    }, 2000);
   }
 
   // Making public methods
