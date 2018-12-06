@@ -15,16 +15,18 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { ImgLazyComponent } from './img-lazy/img-lazy.component';
 import { ImgFirebaseComponent } from './img-firebase/img-firebase.component';
+import { MyBtnComponent } from './my-btn/my-btn.component';
+import { CoolService } from './cool.service';
 
 @NgModule({
-  declarations: [ImgLazyComponent, ImgFirebaseComponent],
+  declarations: [ImgLazyComponent, ImgFirebaseComponent, MyBtnComponent],
   imports: [
     BrowserModule,
     AngularFireModule.initializeApp(config),
     AngularFireStorageModule
   ],
-  providers: [],
-  entryComponents: [ImgLazyComponent, ImgFirebaseComponent]
+  providers: [CoolService],
+  entryComponents: [ImgLazyComponent, ImgFirebaseComponent, MyBtnComponent]
 })
 export class AppModule {
   constructor(private injector: Injector) {}
@@ -32,7 +34,8 @@ export class AppModule {
   ngDoBootstrap() {
     const elements: any[] = [
       [ImgLazyComponent, 'img-lazy'],
-      [ImgFirebaseComponent, 'img-firebase']
+      [ImgFirebaseComponent, 'img-firebase'],
+      [MyBtnComponent, 'my-btn']
     ];
 
     for (const [component, name] of elements) {

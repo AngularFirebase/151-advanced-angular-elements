@@ -9,4 +9,4 @@ Build a web component for lazy loading images and learn how to...
 - Project content with slots
 - And more!
 
-Watch on [YouTube](https://youtube.com/AngularFirebase)
+Watch on [YouTube](https://youtu.be/ujaMvl5M8nY)
